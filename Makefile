@@ -17,3 +17,6 @@ lint: ## Run code quality tools
 
 build: ## Build python dist
 	poetry build
+
+upload: ## Upload python dist
+	echo "Please run 'twine upload' manually."
