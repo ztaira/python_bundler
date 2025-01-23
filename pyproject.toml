@@ -1,6 +1,5 @@
 [project]
 name = "python-bundler"
-version = "0.1.0"
 description = ""
 authors = [
     {name = "Zach Taira",email = "zach.taira@gmail.com"}
@@ -10,6 +9,10 @@ requires-python = ">=3.9, <4.0.0"
 dependencies = [
     "poetry (>=2.0.1,<3.0.0)"
 ]
+dynamic = ["version"]
+
+[tool.poetry]
+version = "0.0.0"
 
 [tool.poetry.scripts]
 python_bundler = "python_bundler.__main__:main"
@@ -19,7 +22,14 @@ black = "^24.10.0"
 pylint = "^3.3.3"
 isort = "^5.13.2"
 mypy = "^1.14.1"
+twine = "^6.1.0"
+
+[tool.poetry-dynamic-versioning]
+enable = true
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[tool.poetry.requires-plugins]
+poetry-dynamic-versioning = { version = ">=1.0.0,<2.0.0", extras = ["plugin"] }
